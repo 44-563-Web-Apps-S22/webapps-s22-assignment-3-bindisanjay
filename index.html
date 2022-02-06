@@ -63,6 +63,27 @@
             <td>$15</td>
         </tr>
     </table>
+    <hr>
+    <h2>Area of Simple Polygon</h2>
+    <blockquote>In geometry, a simple polygon /ˈpɒlɪɡɒn/ is a polygon that does
+        not intersect itself and has no holes. That is, it is a flat shape consisting of
+        straight, non-intersecting line segments or "sides" that are joined pairwise to 
+        form a single closed path. If the sides intersect then the polygon is not simple.
+        The qualifier "simple" is frequently omitted, with the above definition then being 
+        understood to define a polygon in general.
+    <a href="https://en.wikipedia.org/wiki/Simple_polygon">Source</a> </blockquote>
+    <pre>
+        double area(const vector<point>& fig) {
+            double res = 0;
+            for (unsigned i = 0; i < fig.size(); i++) {
+                point p = i ? fig[i - 1] : fig.back();
+                point q = fig[i];
+                res += (p.x - q.x) * (p.y + q.y);
+            }
+            return fabs(res) / 2;
+        }
+    </pre>
+
 </body>
 </html>
 
